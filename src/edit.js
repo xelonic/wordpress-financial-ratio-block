@@ -1,6 +1,8 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 import { Placeholder, TextControl } from '@wordpress/components';
+import { useState, useEffect } from 'react';
+import { fetchData, renderBlock } from './common';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -10,35 +12,72 @@ import { Placeholder, TextControl } from '@wordpress/components';
  */
 import './editor.scss';
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit( { attributes, isSelected, setAttributes } ) {
+	const blockProps = useBlockProps();
+
+	const showEditor =
+		isSelected || ! attributes.ticker || ! attributes.ratio_id;
+
+	const [ ratio, setRatio ] = useState( [] );
+
+	useEffect( () => {
+		if ( showEditor ) {
+			return;
+		}
+
+		async function fetchAndSave() {
+			try {
+				const data = await fetchData(
+					attributes.ticker,
+					attributes.ratio_id
+				);
+				setRatio( data );
+			} catch ( err ) {
+				setRatio( { error: err } );
+			}
+		}
+
+		fetchAndSave();
+	} );
+
+	if ( ! showEditor ) {
+		return (
+			<div { ...blockProps }>
+				{ ratio.error ? (
+					<div>error: { `${ ratio.error }` }</div>
+				) : (
+					renderBlock( ratio )
+				) }
+			</div>
+		);
+	}
+
 	return (
-    <div { ...useBlockProps() }>
-      <Placeholder
-        label={ __('Ticker', 'xelonic-financial-ratio-block') }
-        instructions={ __('Set your ticker', 'xelonic-financial-ratio-block') }
-      >
-        <TextControl
-          value={ attributes.ticker }
-          onChange={ (val) => setAttributes({ ticker: val }) }
-        />
-      </Placeholder>
-      <Placeholder
-        label={ __('Ratio ID', 'xelonic-financial-ratio-block') }
-        instructions={ __('Set the ratio ID', 'xelonic-financial-ratio-block') }
-      >
-        <TextControl
-          value={ attributes.ratio_id }
-          onChange={ (val) => setAttributes({ ratio_id: val }) }
-        />
-      </Placeholder>
-    </div>
+		<div { ...blockProps }>
+			<Placeholder
+				label={ __( 'Ticker', 'xelonic-financial-ratio-block' ) }
+				instructions={ __(
+					'Set your ticker',
+					'xelonic-financial-ratio-block'
+				) }
+			>
+				<TextControl
+					value={ attributes.ticker }
+					onChange={ ( val ) => setAttributes( { ticker: val } ) }
+				/>
+			</Placeholder>
+			<Placeholder
+				label={ __( 'Ratio ID', 'xelonic-financial-ratio-block' ) }
+				instructions={ __(
+					'Set the ratio ID',
+					'xelonic-financial-ratio-block'
+				) }
+			>
+				<TextControl
+					value={ attributes.ratio_id }
+					onChange={ ( val ) => setAttributes( { ratio_id: val } ) }
+				/>
+			</Placeholder>
+		</div>
 	);
 }

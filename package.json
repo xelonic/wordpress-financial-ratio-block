@@ -19,5 +19,8 @@
 		"@wordpress/components": "^23.9.0",
 		"@wordpress/env": "^6.0.0",
 		"@wordpress/scripts": "^26.3.0"
+	},
+	"dependencies": {
+		"react": "^18.2.0"
 	}
 }

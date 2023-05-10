@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Financial Ratio Block
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       A block that displays a financial ratio of a company.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
@@ -13,13 +13,6 @@
  * @package           xelonic
  */
 
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
 function create_block_financial_ratio_block_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
