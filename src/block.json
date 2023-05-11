@@ -6,7 +6,7 @@
 	"title": "Financial Ratio Block",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "A block that displays a financial ratio of a company.",
 	"supports": {
 		"html": false
 	},

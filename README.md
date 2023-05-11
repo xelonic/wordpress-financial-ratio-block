@@ -34,6 +34,14 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 ## Local Development
 
+This plugin is based on the code skeleton `@wordpress/create-block` and was initially generated with
+
+```bash
+npx @wordpress/create-block financial-ratio-block --wp-env
+```
+
+### Getting started
+
 Inside the project directory:
 ```bash
 npm install
