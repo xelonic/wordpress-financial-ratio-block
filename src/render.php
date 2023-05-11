@@ -11,7 +11,7 @@ export function render_widget(ticker, block_props, is_editor) {
       method: "GET",
     };
 
-    fetch(`http://localhost:8081/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=${ticker}&ratio_id=market_cap`, options)
+    fetch(`http://localhost:8081/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=${ticker}&ratioID=market_cap`, options)
       .then((response) => response.json())
       .then((response) => {
         title = response.title;
@@ -62,10 +62,10 @@ function render_ratio_value(value, unit) {
 -->
 <?php
 	$ticker = $attributes['ticker'];
-	$ratio_id = $attributes['ratio_id'];
+	$ratioID = $attributes['ratioID'];
 
 	$error = "";
-	$response = wp_remote_get( "http://host.docker.internal:8081/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=$ticker&ratio_id=$ratio_id" );
+	$response = wp_remote_get( "http://host.docker.internal:8081/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=$ticker&ratioID=$ratioID" );
 	if (is_wp_error($response)) {
 		$error = $response->get_error_message();
 	}
@@ -77,7 +77,7 @@ function render_ratio_value(value, unit) {
 	<!-- <?php esc_html_e( 'Financial Ratio Block – hello from a dynamic block!', 'financial-ratio-block' ); ?> -->
 
 	<div>ticker: <?= $ticker ?></div>
-	<div>ratio ID: <?= $ratio_id ?></div>
+	<div>ratio ID: <?= $ratioID ?></div>
 	<div>error: <?= $error ?></div>
 	<div>response: <?= $body ?></div>
 </div>

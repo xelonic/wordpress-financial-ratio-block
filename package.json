@@ -21,6 +21,7 @@
 		"@wordpress/scripts": "^26.3.0"
 	},
 	"dependencies": {
+		"mutation-observer": "^1.0.3",
 		"react": "^18.2.0"
 	}
 }

@@ -20,7 +20,7 @@
 			"type": "string",
 			"default": "amzn"
 		},
-		"ratio_id": {
+		"ratioID": {
 			"type": "string",
 			"default": "market_cap"
 		}

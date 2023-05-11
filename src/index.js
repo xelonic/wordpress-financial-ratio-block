@@ -17,7 +17,7 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-import edit from './edit';
+import Edit from './edit';
 import metadata from './block.json';
 import save from './save';
 
@@ -27,6 +27,6 @@ import save from './save';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
-	edit,
+	edit: Edit,
 	save,
 } );
