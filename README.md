@@ -15,11 +15,9 @@ Provides a block that displays a financial ratio of a company.
 
 ## Installation
 
-This section describes how to install the plugin and get it working.
 
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/financial-ratio-block` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/financial-ratio-block` directory,
+   or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Use the block in the block editor.
 
@@ -33,3 +31,28 @@ the /assets directory or the directory that contains the stable readme.txt (tags
 directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
 (or jpg, jpeg, gif).
 2. This is the second screen shot
+
+## Local Development
+
+Inside the project directory:
+```bash
+npm install
+```
+
+Then start the wordpress instance:
+
+```bash
+npm run env start
+```
+
+Then start the hot-update mechanism for development:
+
+```bash
+npm run start
+```
+
+When you're done, stop the environment:
+
+```bash
+npm run env stop
+```
