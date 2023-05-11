@@ -11,14 +11,14 @@ window.addEventListener( 'DOMContentLoaded', async () => {
 async function tryCreateBlock( element ) {
 	const { root, err } = await createBlock( element );
 	if ( err ) {
-		root.render( renderError() );
+		root.render( renderError( err ) );
 	}
 }
 
-function renderError() {
+function renderError( err ) {
 	return (
 		<div>
-			<span className="dashicons dashicons-warning"></span>
+			<span className="dashicons dashicons-warning">{ `${ err }` }</span>
 		</div>
 	);
 }

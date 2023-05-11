@@ -6,7 +6,35 @@
  */
 
 .wp-block-xelonic-financial-ratio-block {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	background-color: #fff;
+	color: #1d3557;
+	text-align: center;
+	width: fit-content;
+}
+
+.wp-block-xelonic-financial-ratio-block .title {
+	font-size: 1rem;
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 0.25rem;
+}
+
+.wp-block-xelonic-financial-ratio-block .title .ticker {
+	font-weight: 700;
+	margin-right: 0.25rem;
+}
+
+.wp-block-xelonic-financial-ratio-block .subtitle {
+	padding-top: 0.25rem;
+	color: #6c757d;
+}
+
+.wp-block-xelonic-financial-ratio-block .value {
+	padding-top: 0.25rem;
+	color: #457b9d;
+	font-size: 1.25rem;
+	font-weight: 300;
 }

@@ -8,8 +8,14 @@ export function renderBlockTemplate( blockProps, ticker, ratioID ) {
       I don't know, perhaps the createRoot() already registered a removal callback or so.
       */ }
 			<div>
-				<div className="ticker">{ ticker }</div>
-				<div className="ratio-id">{ ratioID }</div>
+        <div>
+          <div className="hurzel">Ticker</div>
+          <div className="ticker">{ ticker }</div>
+        </div>
+        <div>
+          <div className="pups">Ratio ID</div>
+          <div className="ratio-id">{ ratioID }</div>
+        </div>
 			</div>
 		</div>
 	);
@@ -84,17 +90,21 @@ export async function fetchData( ticker, ratioID ) {
 	return {
 		ticker,
 		ratioID,
-    data: returnedData,
+		data: returnedData,
 	};
 }
 
 export function renderBlock( data ) {
 	return (
 		<div>
-			<div>{ data.ticker }</div>
-			<div>{ data.data.title }</div>
-			<div>{ data.data.subtitle }</div>
-			{ renderRatioValue( data.data.value, data.data.unit ) }
+			<div className="title">
+				<div className="ticker">{ data.ticker.toUpperCase() }</div>
+				<div className="ratio">{ data.data.title }</div>
+			</div>
+			<div className="subtitle">{ data.data.subtitle }</div>
+			<div className="value">
+				{ renderRatioValue( data.data.value, data.data.unit ) }
+			</div>
 		</div>
 	);
 }
@@ -104,15 +114,64 @@ function renderRatioValue( value, unit ) {
 		return <div>n/a</div>;
 	}
 
-	let unitOutput = '';
-	if ( unit ) {
-		unitOutput = ' ' + unit.name;
+	return <div>{ formatValue( value, unit ) }</div>;
+}
+
+function formatValue( value, unit ) {
+	const options = {
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2,
+		notation: 'compact',
+	};
+
+	if ( value.is_percentage ) {
+		options.style = 'percentage';
+		options.notation = 'standard';
 	}
 
-	return (
-		<div>
-			{ value.value }
-			{ unitOutput }
-		</div>
-	);
+	const currency = getCurrency( unit );
+	if ( currency ) {
+		options.style = 'currency';
+		options.currency = currency;
+	}
+
+	return new Intl.NumberFormat( getLocale(), options ).format( value.value );
+}
+
+function getLocale() {
+	if ( typeof Intl !== 'undefined' ) {
+		try {
+			return Intl.NumberFormat().resolvedOptions().locale;
+		} catch ( err ) {
+			// continue below
+		}
+	}
+
+	if ( window.navigator.languages ) {
+		return window.navigator.languages[ 0 ];
+	}
+
+	if ( window.navigator.userLanguage ) {
+		return window.navigator.userLanguage;
+	}
+
+	return window.navigator.language;
+}
+
+function getCurrency( unit ) {
+	if ( ! unit ) {
+		return '';
+	}
+
+	if ( ! unit.name ) {
+		return '';
+	}
+
+	const name = unit.name.toUpperCase().trim();
+
+	if ( ! name.includes( 'ISO4217:' ) ) {
+		return '';
+	}
+
+	return name.substring( name.indexOf( ':' ) + 1 );
 }
