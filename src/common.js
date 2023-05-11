@@ -84,7 +84,7 @@ export async function fetchData( ticker, ratioID ) {
 	return {
 		ticker,
 		ratioID,
-		...returnedData,
+    data: returnedData,
 	};
 }
 
@@ -92,9 +92,9 @@ export function renderBlock( data ) {
 	return (
 		<div>
 			<div>{ data.ticker }</div>
-			<div>{ data.title }</div>
-			<div>{ data.subtitle }</div>
-			{ renderRatioValue( data.value, data.unit ) }
+			<div>{ data.data.title }</div>
+			<div>{ data.data.subtitle }</div>
+			{ renderRatioValue( data.data.value, data.data.unit ) }
 		</div>
 	);
 }

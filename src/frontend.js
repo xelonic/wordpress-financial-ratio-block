@@ -8,8 +8,8 @@ window.addEventListener( 'DOMContentLoaded', async () => {
 	elements.forEach( tryCreateBlock );
 } );
 
-function tryCreateBlock( element ) {
-	const { root, err } = createBlock( element );
+async function tryCreateBlock( element ) {
+	const { root, err } = await createBlock( element );
 	if ( err ) {
 		root.render( renderError() );
 	}
