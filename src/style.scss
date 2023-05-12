@@ -15,8 +15,8 @@ $color: #1d3557;
 }
 
 .wp-block-xelonic-financial-ratio-block a {
-	color: $color;
-	text-decoration: none;
+	color: $color !important;
+	text-decoration: none !important;
 }
 
 .wp-block-xelonic-financial-ratio-block .title {

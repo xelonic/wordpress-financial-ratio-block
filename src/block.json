@@ -23,6 +23,14 @@
 		"ratioID": {
 			"type": "string",
 			"default": "market_cap"
+		},
+		"companyInTitle": {
+			"enum": [ "ticker", "company_name", "none" ],
+			"default": "ticker"
+		},
+		"subtitleVisible": {
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

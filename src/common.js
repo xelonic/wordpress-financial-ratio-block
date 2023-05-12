@@ -1,6 +1,6 @@
 import { createRoot } from '@wordpress/element';
 
-export function renderBlockTemplate( blockProps, ticker, ratioID ) {
+export function renderBlockTemplate( blockProps, attributes ) {
 	return (
 		<div { ...blockProps }>
 			{ /* IMPORTANT: don't remove this container div. we need to call createRoot() below not on the root element, that
@@ -8,8 +8,12 @@ export function renderBlockTemplate( blockProps, ticker, ratioID ) {
       I don't know, perhaps the createRoot() already registered a removal callback or so.
       */ }
 			<div>
-				<div className="ticker">{ ticker }</div>
-				<div className="ratio-id">{ ratioID }</div>
+				<div className="ticker">{ attributes.ticker }</div>
+				<div className="ratio-id">{ attributes.ratioID }</div>
+				<div className="company-in-title">
+					{ attributes.companyInTitle }
+				</div>
+				<div className="subtitle-visible">{ `${ attributes.subtitleVisible }` }</div>
 			</div>
 		</div>
 	);
@@ -27,7 +31,7 @@ export async function createBlock( element ) {
 
 	try {
 		root = createRoot( element.childNodes[ 0 ] ); // IMPORTANT: we need to select the container div here, not the direct root
-		const data = await fetchData( attributes.ticker, attributes.ratioID );
+		const data = await fetchData( attributes );
 		root.render( renderBlock( data ) );
 	} catch ( e ) {
 		err = e;
@@ -36,33 +40,49 @@ export async function createBlock( element ) {
 	return { root, err };
 }
 
-export function getAttributes( element ) {
-	let ticker = element.querySelector( '.ticker' );
-	if ( ! ticker ) {
+function getAttribute( element, className ) {
+	const attributeElement = element.querySelector( '.' + className );
+	if ( ! attributeElement ) {
 		return undefined;
 	}
 
-	ticker = ticker.innerText;
-	if ( ! ticker ) {
-		return undefined;
-	}
-
-	let ratioID = element.querySelector( '.ratio-id' );
-	if ( ! ratioID ) {
-		return undefined;
-	}
-
-	ratioID = ratioID.innerText;
-	if ( ! ratioID ) {
-		return undefined;
-	}
-
-	return { ticker, ratioID };
+	return attributeElement.innerText;
 }
 
-export async function fetchData( ticker, ratioID ) {
+function getBoolAttribute( element, className, defaultValue ) {
+	const value = getAttribute( element, className );
+	if ( value === undefined || value.length < 1 ) {
+		return defaultValue;
+	}
+
+	return value === 'true';
+}
+
+export function getAttributes( element ) {
+	const ticker = getAttribute( element, 'ticker' );
+	if ( ! ticker ) {
+		return undefined;
+	}
+
+	const ratioID = getAttribute( element, 'ratio-id' );
+	if ( ! ratioID ) {
+		return undefined;
+	}
+
+	const companyInTitle =
+		getAttribute( element, 'company-in-title' ) ?? 'ticker';
+	const subtitleVisible = getBoolAttribute(
+		element,
+		'subtitle-visible',
+		true
+	);
+
+	return { ticker, ratioID, companyInTitle, subtitleVisible };
+}
+
+export async function fetchData( attributes ) {
 	const response = await fetch(
-		`http://localhost:8081/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=${ ticker }&ratio_id=${ ratioID }`
+		`http://localhost:8081/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=${ attributes.ticker }&ratio_id=${ attributes.ratioID }`
 	);
 
 	if ( ! response.ok ) {
@@ -82,28 +102,45 @@ export async function fetchData( ticker, ratioID ) {
 	const returnedData = await response.json();
 
 	return {
-		ticker,
-		ratioID,
+		...attributes,
 		data: returnedData,
 	};
 }
 
 export function renderBlock( data ) {
+	const companyInTitle = getCompanyInTitle( data );
+
 	return (
 		<div>
 			{ /* noreferrer: https://mathiasbynens.github.io/rel-noopener/#recommendations */ }
 			<a href="https://xelonic.com" target="_blank" rel="noreferrer">
 				<div className="title">
-					<div className="ticker">{ data.ticker.toUpperCase() }</div>
+					{ companyInTitle && (
+						<div className="ticker">{ companyInTitle }</div>
+					) }
 					<div className="ratio">{ data.data.title }</div>
 				</div>
 			</a>
-			<div className="subtitle">{ data.data.subtitle }</div>
+			{ data.subtitleVisible && (
+				<div className="subtitle">{ data.data.subtitle }</div>
+			) }
 			<div className="value">
 				{ renderRatioValue( data.data.value, data.data.unit ) }
 			</div>
 		</div>
 	);
+}
+
+function getCompanyInTitle( data ) {
+	if ( data.companyInTitle === 'company_name' && data.name ) {
+		return data.name;
+	}
+
+	if ( data.companyInTitle !== 'none' ) {
+		return data.ticker.toUpperCase();
+	}
+
+	return undefined;
 }
 
 function renderRatioValue( value, unit ) {
