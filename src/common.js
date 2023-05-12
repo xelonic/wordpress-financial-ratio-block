@@ -8,14 +8,8 @@ export function renderBlockTemplate( blockProps, ticker, ratioID ) {
       I don't know, perhaps the createRoot() already registered a removal callback or so.
       */ }
 			<div>
-        <div>
-          <div className="hurzel">Ticker</div>
-          <div className="ticker">{ ticker }</div>
-        </div>
-        <div>
-          <div className="pups">Ratio ID</div>
-          <div className="ratio-id">{ ratioID }</div>
-        </div>
+				<div className="ticker">{ ticker }</div>
+				<div className="ratio-id">{ ratioID }</div>
 			</div>
 		</div>
 	);

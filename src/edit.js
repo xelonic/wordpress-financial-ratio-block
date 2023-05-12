@@ -80,6 +80,8 @@ export default function Edit( { attributes, isSelected, setAttributes } ) {
 				subtree: true,
 				attributes: true,
 			} );
+
+			tryCreateBlock( ref.current );
 		}
 
 		return () => {
