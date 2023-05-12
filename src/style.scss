@@ -5,11 +5,18 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+$color: #1d3557;
+
 .wp-block-xelonic-financial-ratio-block {
 	background-color: #fff;
-	color: #1d3557;
+	color: $color;
 	text-align: center;
 	width: fit-content;
+}
+
+.wp-block-xelonic-financial-ratio-block a {
+	color: $color;
+	text-decoration: none;
 }
 
 .wp-block-xelonic-financial-ratio-block .title {

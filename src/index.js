@@ -20,6 +20,7 @@ import './style.scss';
 import Edit from './edit';
 import metadata from './block.json';
 import save from './save';
+import { createIcon } from './icon';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -29,4 +30,5 @@ import save from './save';
 registerBlockType( metadata.name, {
 	edit: Edit,
 	save,
+	icon: () => createIcon(),
 } );

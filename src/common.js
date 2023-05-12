@@ -91,10 +91,13 @@ export async function fetchData( ticker, ratioID ) {
 export function renderBlock( data ) {
 	return (
 		<div>
-			<div className="title">
-				<div className="ticker">{ data.ticker.toUpperCase() }</div>
-				<div className="ratio">{ data.data.title }</div>
-			</div>
+			{ /* noreferrer: https://mathiasbynens.github.io/rel-noopener/#recommendations */ }
+			<a href="https://xelonic.com" target="_blank" rel="noreferrer">
+				<div className="title">
+					<div className="ticker">{ data.ticker.toUpperCase() }</div>
+					<div className="ratio">{ data.data.title }</div>
+				</div>
+			</a>
 			<div className="subtitle">{ data.data.subtitle }</div>
 			<div className="value">
 				{ renderRatioValue( data.data.value, data.data.unit ) }
