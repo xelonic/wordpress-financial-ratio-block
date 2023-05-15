@@ -7,7 +7,7 @@
 
 $color: #1d3557;
 $color-muted: #6c757d;
-$icon-size: 0.7rem;
+$icon-size: 1rem;
 
 .wp-block-xelonic-financial-ratio-block {
 	background-color: #fff;
@@ -55,6 +55,6 @@ $icon-size: 0.7rem;
 .wp-block-xelonic-financial-ratio-block .xelonic-link {
 	position: absolute;
 	right: 0;
-	bottom: $icon-size + 0.2rem;
+	bottom: $icon-size / 2;
 	height: $icon-size;
 }

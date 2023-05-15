@@ -120,7 +120,9 @@ export function renderBlock(data) {
       </a>
       {data.subtitleVisible && <div className="subtitle">{data.data.subtitle}</div>}
       <div className="value">{renderRatioValue(data.data.value, data.data.unit)}</div>
-      <a href="https://xelonic.com" target="_blank" rel="noreferrer" className="xelonic-link">{ createIcon() }</a>
+      <a href="https://xelonic.com" target="_blank" rel="noreferrer" className="xelonic-link">
+        {createIcon()}
+      </a>
     </div>
   );
 }
