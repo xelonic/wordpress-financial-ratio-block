@@ -6,12 +6,18 @@
  */
 
 $color: #1d3557;
+$color-muted: #6c757d;
+$icon-size: 0.7rem;
 
 .wp-block-xelonic-financial-ratio-block {
 	background-color: #fff;
 	color: $color;
 	text-align: center;
 	width: fit-content;
+}
+
+.wp-block-xelonic-financial-ratio-block .container {
+	position: relative;
 }
 
 .wp-block-xelonic-financial-ratio-block a {
@@ -36,7 +42,7 @@ $color: #1d3557;
 
 .wp-block-xelonic-financial-ratio-block .subtitle {
 	padding-top: 0.25rem;
-	color: #6c757d;
+	color: $color-muted;
 }
 
 .wp-block-xelonic-financial-ratio-block .value {
@@ -44,4 +50,11 @@ $color: #1d3557;
 	color: #457b9d;
 	font-size: 1.25rem;
 	font-weight: 300;
+}
+
+.wp-block-xelonic-financial-ratio-block .xelonic-link {
+	position: absolute;
+	right: 0;
+	bottom: $icon-size + 0.2rem;
+	height: $icon-size;
 }

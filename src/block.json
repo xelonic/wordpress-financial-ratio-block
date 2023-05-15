@@ -1,36 +1,36 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "xelonic/financial-ratio-block",
-	"version": "0.1.0",
-	"title": "Financial Ratio",
-	"category": "widgets",
-	"icon": "analytics",
-	"description": "A block that displays a financial ratio of a company.",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "xelonic-financial-ratio-block",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"viewScript": "file:./frontend.js",
-	"attributes": {
-		"ticker": {
-			"type": "string",
-			"default": "amzn"
-		},
-		"ratioID": {
-			"type": "string",
-			"default": "market_cap"
-		},
-		"companyInTitle": {
-			"enum": [ "ticker", "company_name", "none" ],
-			"default": "ticker"
-		},
-		"subtitleVisible": {
-			"type": "boolean",
-			"default": true
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "xelonic/financial-ratio-block",
+  "version": "0.1.0",
+  "title": "Financial Ratio",
+  "category": "widgets",
+  "icon": "analytics",
+  "description": "A block that displays a financial ratio of a company.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "xelonic-financial-ratio-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./frontend.js",
+  "attributes": {
+    "ticker": {
+      "type": "string",
+      "default": "amzn"
+    },
+    "ratioID": {
+      "type": "string",
+      "default": "market_cap"
+    },
+    "companyInTitle": {
+      "enum": ["ticker", "company_name", "none"],
+      "default": "ticker"
+    },
+    "subtitleVisible": {
+      "type": "boolean",
+      "default": true
+    }
+  }
 }
