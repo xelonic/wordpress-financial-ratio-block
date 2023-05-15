@@ -2,7 +2,7 @@ import { __ } from "@wordpress/i18n";
 import { useBlockProps } from "@wordpress/block-editor";
 import { useRef, useLayoutEffect } from "@wordpress/element";
 import { CheckboxControl, SelectControl, TextControl } from "@wordpress/components";
-import { createBlock, renderBlockTemplate } from "./common";
+import { createBlock, renderBlockTemplate, renderError } from "./common";
 import MutationObserver from "mutation-observer";
 
 /**
@@ -50,13 +50,13 @@ async function tryCreateBlock(node) {
 }
 
 function handleError(err, root) {
-  let data = <div>error: {`${err}`}</div>;
+  let data = `${err}`;
 
   if (err.status === 404) {
-    data = <div>error: ticker or ratio not found</div>;
+    data = "error: ticker or ratio not found";
   }
 
-  root.render(data);
+  root.render(renderError(data));
 }
 
 export default function Edit({ attributes, isSelected, setAttributes }) {

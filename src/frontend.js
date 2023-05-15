@@ -1,4 +1,5 @@
-import { createBlock } from "./common";
+import { __ } from "@wordpress/i18n";
+import { createBlock, renderError } from "./common";
 
 window.addEventListener("DOMContentLoaded", async () => {
   const elements = document.querySelectorAll(".wp-block-xelonic-financial-ratio-block");
@@ -9,14 +10,6 @@ window.addEventListener("DOMContentLoaded", async () => {
 async function tryCreateBlock(element) {
   const { root, err } = await createBlock(element);
   if (err) {
-    root.render(renderError(err));
+    root.render(renderError(__("Failed to fetch ratio data", "xelonic-financial-ratio-block")));
   }
-}
-
-function renderError(err) {
-  return (
-    <div>
-      <span className="dashicons dashicons-warning">{`${err}`}</span>
-    </div>
-  );
 }

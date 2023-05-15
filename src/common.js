@@ -1,4 +1,5 @@
 import { createRoot } from "@wordpress/element";
+import { Dashicon } from "@wordpress/components";
 import { createIcon } from "./icon";
 
 /**
@@ -207,4 +208,15 @@ function getCurrency(unit) {
   }
 
   return name.substring(name.indexOf(":") + 1);
+}
+
+export function renderError(err) {
+  return (
+    <div className="error-container">
+      <div className="icon">
+        <Dashicon icon="warning" />
+      </div>
+      <div className="message">{err}</div>
+    </div>
+  );
 }
