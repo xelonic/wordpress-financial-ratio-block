@@ -21,6 +21,7 @@ export function renderBlockTemplate(blockProps, attributes) {
         <div className="ticker">{attributes.ticker}</div>
         <div className="ratio-id">{attributes.ratioID}</div>
         <div className="company-in-title">{attributes.companyInTitle}</div>
+        <div className="company-logo-visible">{`${attributes.companyLogoVisible}`}</div>
         <div className="subtitle-visible">{`${attributes.subtitleVisible}`}</div>
       </div>
     </div>
@@ -79,13 +80,14 @@ export function getAttributes(element) {
 
   const companyInTitle = getAttribute(element, "company-in-title") ?? "ticker";
   const subtitleVisible = getBoolAttribute(element, "subtitle-visible", true);
+  const companyLogoVisible = getBoolAttribute(element, "company-logo-visible", true);
 
-  return { ticker, ratioID, companyInTitle, subtitleVisible };
+  return { ticker, ratioID, companyInTitle, subtitleVisible, companyLogoVisible };
 }
 
 export async function fetchData(attributes) {
-  // const base = "http://localhost:8081";
-  const base = "https://api.xelonic.com";
+  const base = "http://localhost:8081";
+  // const base = "https://api.xelonic.com";
 
   const response = await fetch(
     `${base}/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=${attributes.ticker}&ratio_id=${attributes.ratioID}`,
@@ -118,14 +120,25 @@ export async function fetchData(attributes) {
 }
 
 export function renderBlock(data) {
-  const companyInTitle = getCompanyInTitle(data);
+  const companyName = getCompanyName(data);
+  const companyLogo = data.companyLogoVisible ? getCompanyLogo(data.ratio) : undefined;
+  let companyInTitle;
+
+  if (data.companyInTitle !== "none") {
+    companyInTitle = (
+      <div className="ticker">
+        {companyLogo && <img className="logo" src={companyLogo} />}
+        {companyName}
+      </div>
+    );
+  }
 
   return (
     <div className="container">
       {/* noreferrer: https://mathiasbynens.github.io/rel-noopener/#recommendations */}
       <a href="https://xelonic.com" target="_blank" rel="noreferrer">
         <div className="title">
-          {companyInTitle && <div className="ticker">{companyInTitle}</div>}
+          {companyInTitle}
           <div className="ratio">{data.ratioDefinition.label}</div>
         </div>
       </a>
@@ -138,16 +151,28 @@ export function renderBlock(data) {
   );
 }
 
-function getCompanyInTitle(data) {
+function getCompanyName(data) {
   if (data.companyInTitle === "company_name" && data.ratio.company_info && data.ratio.company_info.name) {
     return data.ratio.company_info.name;
   }
 
-  if (data.companyInTitle !== "none") {
-    return data.ticker.toUpperCase();
+  return data.ticker.toUpperCase();
+}
+
+function getCompanyLogo(ratio) {
+  if (!ratio) {
+    return undefined;
   }
 
-  return undefined;
+  if (!ratio.company_info) {
+    return undefined;
+  }
+
+  if (!ratio.company_info.logo) {
+    return undefined;
+  }
+
+  return ratio.company_info.logo.url;
 }
 
 function renderRatioValue(ratio) {

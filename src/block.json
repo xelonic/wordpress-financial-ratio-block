@@ -10,7 +10,7 @@
   "supports": {
     "html": false
   },
-	"keywords": [ "finance", "market", "stock", "ticker", "trading", "investment" ],
+  "keywords": ["finance", "market", "stock", "ticker", "trading", "investment"],
   "textdomain": "xelonic-financial-ratio-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
@@ -28,6 +28,10 @@
     "companyInTitle": {
       "enum": ["ticker", "company_name", "none"],
       "default": "ticker"
+    },
+    "companyLogoVisible": {
+      "type": "boolean",
+      "default": true
     },
     "subtitleVisible": {
       "type": "boolean",

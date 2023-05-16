@@ -39,6 +39,14 @@ $whitespace: 0.25rem;
 .wp-block-xelonic-financial-ratio-block .title .ticker {
 	font-weight: 700;
 	margin-right: $whitespace;
+	display: flex;
+	align-items: center;
+}
+
+.wp-block-xelonic-financial-ratio-block .title .ticker .logo {
+	max-width: 1rem;
+	max-height: 1rem;
+	margin-right: $whitespace;
 }
 
 .wp-block-xelonic-financial-ratio-block .subtitle {

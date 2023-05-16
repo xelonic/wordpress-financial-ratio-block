@@ -140,6 +140,12 @@ function renderBlockEditorTemplate(blockProps, attributes, setAttributes) {
         onChange={(val) => setAttributes({ companyInTitle: val })}
       />
       <CheckboxControl
+        label={__("Show Company Logo", "xelonic-financial-ratio-block")}
+        help={__("show company logo if company is displayed in title ", "xelonic-financial-ratio-block")}
+        checked={attributes.companyLogoVisible}
+        onChange={(val) => setAttributes({ companyLogoVisible: val })}
+      />
+      <CheckboxControl
         label={__("Show Subtitle", "xelonic-financial-ratio-block")}
         help={__("toggle visibility of brief ratio description", "xelonic-financial-ratio-block")}
         checked={attributes.subtitleVisible}
