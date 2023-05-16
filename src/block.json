@@ -4,12 +4,13 @@
   "name": "xelonic/financial-ratio-block",
   "version": "0.1.0",
   "title": "Financial Ratio",
-  "category": "widgets",
+  "category": "embed",
   "icon": "analytics",
   "description": "A block that displays a financial ratio of a company.",
   "supports": {
     "html": false
   },
+	"keywords": [ "finance", "market", "stock", "ticker", "trading", "investment" ],
   "textdomain": "xelonic-financial-ratio-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
