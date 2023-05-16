@@ -1,6 +1,7 @@
 import { createRoot } from "@wordpress/element";
 import { Dashicon } from "@wordpress/components";
 import { createIcon } from "./icon";
+import { findRatioDefinition } from "./ratios";
 
 /**
  * The template is the content used to exchange data from the editor and the frontend. It is the content saved by
@@ -104,9 +105,15 @@ export async function fetchData(attributes) {
 
   const returnedData = await response.json();
 
+  const ratioDefinition = findRatioDefinition(attributes.ratioID);
+  if (!ratioDefinition) {
+    throw new Error("ratio definition not found");
+  }
+
   return {
     ...attributes,
-    data: returnedData,
+    ratioDefinition,
+    ratio: returnedData,
   };
 }
 
@@ -119,11 +126,11 @@ export function renderBlock(data) {
       <a href="https://xelonic.com" target="_blank" rel="noreferrer">
         <div className="title">
           {companyInTitle && <div className="ticker">{companyInTitle}</div>}
-          <div className="ratio">{data.data.title}</div>
+          <div className="ratio">{data.ratioDefinition.label}</div>
         </div>
       </a>
-      {data.subtitleVisible && <div className="subtitle">{data.data.subtitle}</div>}
-      <div className="value">{renderRatioValue(data.data.value, data.data.unit)}</div>
+      {data.subtitleVisible && <div className="subtitle">{data.ratioDefinition.subLabel}</div>}
+      <div className="value">{renderRatioValue(data.ratio)}</div>
       <a href="https://xelonic.com" target="_blank" rel="noreferrer" className="xelonic-link">
         {createIcon()}
       </a>
@@ -132,8 +139,8 @@ export function renderBlock(data) {
 }
 
 function getCompanyInTitle(data) {
-  if (data.companyInTitle === "company_name" && data.name) {
-    return data.name;
+  if (data.companyInTitle === "company_name" && data.ratio.company_info && data.ratio.company_info.name) {
+    return data.ratio.company_info.name;
   }
 
   if (data.companyInTitle !== "none") {
@@ -143,12 +150,12 @@ function getCompanyInTitle(data) {
   return undefined;
 }
 
-function renderRatioValue(value, unit) {
-  if (!value) {
+function renderRatioValue(ratio) {
+  if (!ratio.value) {
     return <div>n/a</div>;
   }
 
-  return <div>{formatValue(value, unit)}</div>;
+  return <div>{formatValue(ratio.value, ratio.unit)}</div>;
 }
 
 function formatValue(value, unit) {

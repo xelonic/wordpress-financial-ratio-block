@@ -12,6 +12,7 @@ import MutationObserver from "mutation-observer";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
+import { ratioDefinitions } from "./ratios";
 
 function onDOMElementsChanged(mutationList) {
   for (const mutation of mutationList) {
@@ -99,6 +100,13 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 }
 
 function renderBlockEditorTemplate(blockProps, attributes, setAttributes) {
+  const ratioOptions = ratioDefinitions.map((ratioDef) => {
+    return {
+      label: ratioDef.label,
+      value: ratioDef.id,
+    };
+  });
+
   return (
     <div {...blockProps}>
       <TextControl
@@ -108,28 +116,7 @@ function renderBlockEditorTemplate(blockProps, attributes, setAttributes) {
       />
       <SelectControl
         label={__("Ratio", "xelonic-financial-ratio-block")}
-        options={[
-          {
-            label: __("Market Cap", "xelonic-financial-ratio-block"),
-            value: "market_cap",
-          },
-          {
-            label: __("Price/Earnings", "xelonic-financial-ratio-block"),
-            value: "price_earnings_basic",
-          },
-          {
-            label: __("Price/Sales", "xelonic-financial-ratio-block"),
-            value: "price_sales",
-          },
-          {
-            label: __("Price/Book", "xelonic-financial-ratio-block"),
-            value: "price_book",
-          },
-          {
-            label: __("Price/Cash-Flow", "xelonic-financial-ratio-block"),
-            value: "price_cash_flow",
-          },
-        ]}
+        options={ratioOptions}
         value={attributes.ratioID}
         onChange={(val) => setAttributes({ ratioID: val })}
       />
