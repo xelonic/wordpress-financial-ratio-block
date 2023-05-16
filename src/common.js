@@ -133,10 +133,12 @@ export function renderBlock(data) {
     );
   }
 
+  const link = data.ratio.dash_link ?? "https://xelonic.com";
+
   return (
     <div className="container">
       {/* noreferrer: https://mathiasbynens.github.io/rel-noopener/#recommendations */}
-      <a href="https://xelonic.com" target="_blank" rel="noreferrer">
+      <a href={link} target="_blank" rel="noreferrer">
         <div className="title">
           {companyInTitle}
           <div className="ratio">{data.ratioDefinition.label}</div>
