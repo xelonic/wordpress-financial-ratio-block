@@ -50,7 +50,7 @@ npm install
 Then start the wordpress instance:
 
 ```bash
-npm run env start
+npm run env -- start
 ```
 
 Then start the hot-update mechanism for development:
@@ -62,5 +62,5 @@ npm run start
 When you're done, stop the environment:
 
 ```bash
-npm run env stop
+npm run env -- stop
 ```
