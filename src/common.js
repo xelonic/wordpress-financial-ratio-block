@@ -194,7 +194,7 @@ function formatValue(value, unit) {
   };
 
   if (value.is_percentage) {
-    options.style = "percentage";
+    options.style = "percent";
     options.notation = "standard";
   }
 
