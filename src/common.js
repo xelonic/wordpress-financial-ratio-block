@@ -86,8 +86,9 @@ export function getAttributes(element) {
 }
 
 export async function fetchData(attributes) {
-  const base = "http://localhost:8081";
-  // const base = "https://api.xelonic.com";
+  // const base = "http://localhost:8081";
+  const base = "https://api.xelonic.com";
+  // const base = "https://api.sol3.xelonic.de";
 
   const response = await fetch(
     `${base}/market-data/1.0.0/external/wordpress/financial-ratio-block?ticker=${attributes.ticker}&ratio_id=${attributes.ratioID}`,
