@@ -42,6 +42,14 @@ npx @wordpress/create-block financial-ratio-block --wp-env
 
 ### Manage the dev environment
 
+Make sure you use node version 14. This can be done by using the tool `nvm` (a corresponding `.nvmrc`
+is in the project directory). And then:
+
+```bash
+nvm install
+nvm use
+```
+
 Inside the project directory:
 ```bash
 npm install
@@ -63,6 +71,12 @@ When you're done, stop the environment:
 
 ```bash
 npm run env -- stop
+```
+
+To get fully rid of the state (including docker volumes) run:
+
+```bash
+npm run env -- destroy
 ```
 
 ### Configure Wordpress
