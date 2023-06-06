@@ -26,7 +26,11 @@ $whitespace: 0.25rem;
 	text-decoration: none !important;
 }
 
-.wp-block-xelonic-financial-ratio-block .title {
+.wp-block-xelonic-financial-ratio-block .xe_company {
+	display: block;
+}
+
+.wp-block-xelonic-financial-ratio-block .xe_title {
 	font-size: 1rem;
 	display: flex;
 	justify-content: center;
@@ -36,36 +40,33 @@ $whitespace: 0.25rem;
 	padding-bottom: 0.25rem;
 }
 
-.wp-block-xelonic-financial-ratio-block .title .ticker {
-	font-weight: 700;
+.wp-block-xelonic-financial-ratio-block .xe_company .xe_ticker {
 	margin-right: $whitespace;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
-}
-
-.wp-block-xelonic-financial-ratio-block .title .ticker .logo {
-	max-width: 1rem;
-	max-height: 1rem;
-	margin-right: $whitespace;
-}
-
-.wp-block-xelonic-financial-ratio-block .subtitle {
-	padding-top: 0.25rem;
+	justify-content: center;
+	font-size: 0.75rem;
 	color: $color-muted;
 }
 
-.wp-block-xelonic-financial-ratio-block .value {
+.wp-block-xelonic-financial-ratio-block .xe_wrap_logo .xe_logo {
+	max-width: 4rem;
+	max-height: 4rem;
+	margin-right: $whitespace;
+}
+
+.wp-block-xelonic-financial-ratio-block .xe_subtitle {
+	padding-top: 0.25rem;
+	color: $color-muted;
+	justify-content: center;
+}
+
+.wp-block-xelonic-financial-ratio-block .xe_value {
+	justify-content: center;
 	padding-top: 0.25rem;
 	color: #457b9d;
 	font-size: 1.25rem;
 	font-weight: 300;
-}
-
-.wp-block-xelonic-financial-ratio-block .xelonic-link {
-	position: absolute;
-	right: 0;
-	bottom: calc($icon-size / 2);
-	height: $icon-size;
 }
 
 .wp-block-xelonic-financial-ratio-block .error-container {

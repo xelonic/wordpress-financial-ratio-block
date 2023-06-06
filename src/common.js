@@ -1,6 +1,5 @@
 import { createRoot } from "@wordpress/element";
 import { Dashicon } from "@wordpress/components";
-import { createIcon } from "./icon";
 import { findRatioDefinition } from "./ratios";
 
 /**
@@ -127,10 +126,17 @@ export function renderBlock(data) {
 
   if (data.companyInTitle !== "none") {
     companyInTitle = (
-      <div className="ticker">
-        {companyLogo && <img className="logo" src={companyLogo} />}
+      <div className="xe_ticker">
         {companyName}
       </div>
+    );
+  }
+
+  let logoInTitle;
+
+  if (companyLogo) {
+    logoInTitle = (
+      <img className="xe_logo" src={companyLogo} alt={companyName} />
     );
   }
 
@@ -140,16 +146,14 @@ export function renderBlock(data) {
     <div className="container">
       {/* noreferrer: https://mathiasbynens.github.io/rel-noopener/#recommendations */}
       <a href={link} target="_blank" rel="noreferrer">
-        <div className="title">
-          {companyInTitle}
-          <div className="ratio">{data.ratioDefinition.label}</div>
+      <div className="xe_wrap_logo">{logoInTitle}</div>
+        <div className="xe_company">{companyInTitle}</div>
+        <div className="xe_title">
+          <div className="we_ratio"><strong>{data.ratioDefinition.label}</strong></div>
         </div>
       </a>
-      {data.subtitleVisible && <div className="subtitle">{data.ratioDefinition.subLabel}</div>}
-      <div className="value">{renderRatioValue(data.ratio)}</div>
-      <a href="https://xelonic.com" target="_blank" rel="noreferrer" className="xelonic-link">
-        {createIcon()}
-      </a>
+      {data.subtitleVisible && <div className="xe_subtitle">{data.ratioDefinition.subLabel}</div>}
+      <div className="xe_value">{renderRatioValue(data.ratio)}</div>
     </div>
   );
 }
