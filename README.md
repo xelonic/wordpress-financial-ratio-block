@@ -40,7 +40,7 @@ This plugin is based on the code skeleton `@wordpress/create-block` and was init
 npx @wordpress/create-block financial-ratio-block --wp-env
 ```
 
-### Getting started
+### Manage the dev environment
 
 Inside the project directory:
 ```bash
@@ -64,3 +64,16 @@ When you're done, stop the environment:
 ```bash
 npm run env -- stop
 ```
+
+### Configure Wordpress
+
+Then you can navigate to wordpress, by default on `http://localhost:8888`. There you have to activate the plugin
+for the block.
+
+* go to `Plugins`
+* activate `Financial Ratio`
+* go to `Appearance` -> `Editor`
+* click inside the big editor
+* on the upper-left click on the `+`
+* search for `financ`
+* drag & drop the block somewhere and edit it
