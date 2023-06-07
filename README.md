@@ -20,10 +20,11 @@ The block will invoke an API from <a href="https://xelonic.com" target="_blank">
 
 ## Installation
 
-1. Upload the plugin files to the `/wp-content/plugins/financial-ratio-block` directory,
+1. Upload the plugin files to the `<wordpress installation>/wp-content/plugins/financial-ratio-block` directory,
    or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. In the block editor search for `financial ratio`.
+3. In the block editor search for `financial ratio` and add it.
+4. Configure the block using the right sidebar.
 
 ## Screenshots
 
@@ -91,3 +92,17 @@ The default username is `admin` with password `password`.
 * on the upper-left click on the `+`
 * search for `financ`
 * drag & drop the block somewhere and edit it
+
+### Test with a plain wordpress
+
+You can use the `docker-compose.yml` in this repo to test it:
+
+```bash
+docker-compose up -d
+```
+
+Then later remove it fully again with:
+
+```bash
+docker-compose down -v
+```
