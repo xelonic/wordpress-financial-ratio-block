@@ -1,36 +1,26 @@
-# Xelonic Financial Ratio Block
+# Financial Ratio Block
 
 * Contributors:      xelonic capital GmbH
 * Tags:              block
 * Tested up to:      6.1
-* Stable tag:        0.1.0
-* License:           GPL-2.0-or-later
-* License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+* Stable tag:        1.0.0
 
 Provides a block that displays a financial ratio of a company.
 
 ## Description
 
-**TODO**
+This plugin enables a block in the `embed` category to display a configured financial ratio of a target company.
 
 ## Installation
-
 
 1. Upload the plugin files to the `/wp-content/plugins/financial-ratio-block` directory,
    or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Use the block in the block editor.
-
+3. In the block editor search for `financial ratio`.
 
 ## Screenshots
 
-**TODO**
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+[!block screenshot](./screenshots/screenshot-block.png)
 
 ## Local Development
 
@@ -51,6 +41,7 @@ nvm use
 ```
 
 Inside the project directory:
+
 ```bash
 npm install
 ```
