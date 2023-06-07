@@ -6,8 +6,8 @@
  * Requires PHP:      7.0
  * Version:           1.0.0
  * Author:            xelonic capital GmbH
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * License:           GPL-3.0
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       xelonic-financial-ratio-block
  *
  * @package           xelonic
