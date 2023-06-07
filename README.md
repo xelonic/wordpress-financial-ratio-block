@@ -1,5 +1,7 @@
 # Financial Ratio Block
 
+[![Build](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml/badge.svg)](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml)
+
 * Contributors:      xelonic capital GmbH
 * Tags:              block
 * Tested up to:      6.1
