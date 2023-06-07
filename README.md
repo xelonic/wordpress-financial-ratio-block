@@ -84,6 +84,8 @@ npm run env -- destroy
 Then you can navigate to wordpress, by default on `http://localhost:8888`. There you have to activate the plugin
 for the block.
 
+The default username is `admin` with password `password`.
+
 * go to `Plugins`
 * activate `Financial Ratio`
 * go to `Appearance` -> `Editor`

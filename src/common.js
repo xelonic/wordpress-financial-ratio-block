@@ -9,43 +9,48 @@ import { findRatioDefinition } from "./ratios";
  * Everytime the block is loaded in the frontend this content gets inserted and frontend.js will pick it up and
  * turn it into the final block display.
  */
-export function renderBlockTemplate(blockProps, attributes) {
+export function renderBlockTemplate(attributes) {
   return (
-    <div {...blockProps}>
-      {/* IMPORTANT: don't remove this container div. we need to call createRoot() below not on the root element, that
-      React uses as the root element of the block. At some point it will remove the root element, but can't because
-      I don't know, perhaps the createRoot() already registered a removal callback or so.
-      */}
       <div>
-        <div className="ticker">{attributes.ticker}</div>
-        <div className="ratio-id">{attributes.ratioID}</div>
-        <div className="company-in-title">{attributes.companyInTitle}</div>
-        <div className="company-logo-visible">{`${attributes.companyLogoVisible}`}</div>
-        <div className="subtitle-visible">{`${attributes.subtitleVisible}`}</div>
+        <div className="attributes display-none">
+          <div className="ticker">{attributes.ticker}</div>
+          <div className="ratio-id">{attributes.ratioID}</div>
+          <div className="company-in-title">{attributes.companyInTitle}</div>
+          <div className="company-logo-visible">{`${attributes.companyLogoVisible}`}</div>
+          <div className="subtitle-visible">{`${attributes.subtitleVisible}`}</div>
+        </div>
+        <div className="result"></div>
       </div>
-    </div>
   );
 }
 
-export async function createBlock(element) {
-  const attributes = getAttributes(element);
-  if (!attributes) {
-    // it's rendered already
-    return {};
+export function createResultRoot(element) {
+  const rootEl = element.querySelector(".result");
+  if (!rootEl) {
+    throw new Error("failed to create result root");
   }
 
-  let root;
-  let err;
+  return createRoot(rootEl);
+}
 
+/**
+ * options:
+ * - linksDisabled: if true, the rendered links are not clickable
+ */
+export async function createBlock(element, root, options) {
   try {
-    root = createRoot(element.childNodes[0]); // IMPORTANT: we need to select the container div here, not the direct root
+    const attributes = getAttributes(element);
+    if (!attributes) {
+      return;
+    }
+
     const data = await fetchData(attributes);
-    root.render(renderBlock(data));
+    root.render(renderBlock(data, options));
   } catch (e) {
-    err = e;
+    return e;
   }
 
-  return { root, err };
+  return undefined;
 }
 
 function getAttribute(element, className) {
@@ -119,14 +124,18 @@ export async function fetchData(attributes) {
   };
 }
 
-export function renderBlock(data) {
+/**
+ * options:
+ * - linksDisabled: if true, the rendered links are not clickable
+ */
+export function renderBlock(data, options) {
   const companyName = getCompanyName(data);
   const companyLogo = data.companyLogoVisible ? getCompanyLogo(data.ratio) : undefined;
   let companyInTitle;
 
   if (data.companyInTitle !== "none") {
     companyInTitle = (
-      <div className="xe_ticker">
+      <div className="xe-ticker">
         {companyName}
       </div>
     );
@@ -136,24 +145,24 @@ export function renderBlock(data) {
 
   if (companyLogo) {
     logoInTitle = (
-      <img className="xe_logo" src={companyLogo} alt={companyName} />
+      <img className="xe-logo" src={companyLogo} alt={companyName} />
     );
   }
 
   const link = data.ratio.dash_link ?? "https://xelonic.com";
 
   return (
-    <div className="container">
+    <div className="xe-container">
       {/* noreferrer: https://mathiasbynens.github.io/rel-noopener/#recommendations */}
-      <a href={link} target="_blank" rel="noreferrer">
-      <div className="xe_wrap_logo">{logoInTitle}</div>
-        <div className="xe_company">{companyInTitle}</div>
-        <div className="xe_title">
-          <div className="we_ratio"><strong>{data.ratioDefinition.label}</strong></div>
+      <a href={link} target="_blank" rel="noreferrer" className={options?.linksDisabled && "disabled-link"}>
+      <div className="xe-wrap-logo">{logoInTitle}</div>
+        <div className="xe-company">{companyInTitle}</div>
+        <div className="xe-title">
+          <div><strong>{data.ratioDefinition.label}</strong></div>
         </div>
       </a>
-      {data.subtitleVisible && <div className="xe_subtitle">{data.ratioDefinition.subLabel}</div>}
-      <div className="xe_value">{renderRatioValue(data.ratio)}</div>
+      {data.subtitleVisible && <div className="xe-subtitle">{data.ratioDefinition.subLabel}</div>}
+      <div className="xe-value">{renderRatioValue(data.ratio)}</div>
     </div>
   );
 }
