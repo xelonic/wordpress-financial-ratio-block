@@ -6,6 +6,7 @@
 * Tags:              block
 * Tested up to:      6.1
 * Stable tag:        1.0.0
+* License:           GPLv3
 
 Provides a block for Wordpress that displays a financial ratio of a company.
 
