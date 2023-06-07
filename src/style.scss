@@ -69,23 +69,23 @@ $whitespace: 0.25rem;
 	font-weight: 300;
 }
 
-.wp-block-xelonic-financial-ratio-block .disabled-link {
+.wp-block-xelonic-financial-ratio-block .xe-disabled-link {
 	pointer-events: none;
 }
 
-.wp-block-xelonic-financial-ratio-block .display-none {
+.wp-block-xelonic-financial-ratio-block .xe-display-none {
 	display: none;
 }
 
-.wp-block-xelonic-financial-ratio-block .error-container {
+.wp-block-xelonic-financial-ratio-block .xe-error-container {
 	display: flex;
 }
 
-.wp-block-xelonic-financial-ratio-block .error-container .icon {
+.wp-block-xelonic-financial-ratio-block .xe-error-container .xe-icon {
 	display: flex;
 	align-items: center;
 }
 
-.wp-block-xelonic-financial-ratio-block .error-container .message {
+.wp-block-xelonic-financial-ratio-block .xe-error-container .xe-message {
 	margin-left: $whitespace;
 }

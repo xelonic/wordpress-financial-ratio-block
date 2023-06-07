@@ -12,7 +12,7 @@ import { findRatioDefinition } from "./ratios";
 export function renderBlockTemplate(attributes) {
   return (
       <div>
-        <div className="attributes display-none">
+        <div className="attributes xe-display-none">
           <div className="ticker">{attributes.ticker}</div>
           <div className="ratio-id">{attributes.ratioID}</div>
           <div className="company-in-title">{attributes.companyInTitle}</div>
@@ -154,7 +154,7 @@ export function renderBlock(data, options) {
   return (
     <div className="xe-container">
       {/* noreferrer: https://mathiasbynens.github.io/rel-noopener/#recommendations */}
-      <a href={link} target="_blank" rel="noreferrer" className={options?.linksDisabled && "disabled-link"}>
+      <a href={link} target="_blank" rel="noreferrer" className={options?.linksDisabled && "xe-disabled-link"}>
       <div className="xe-wrap-logo">{logoInTitle}</div>
         <div className="xe-company">{companyInTitle}</div>
         <div className="xe-title">
@@ -260,11 +260,11 @@ function getCurrency(unit) {
 
 export function renderError(err) {
   return (
-    <div className="error-container">
-      <div className="icon">
+    <div className="xe-error-container">
+      <div className="xe-icon">
         <Dashicon icon="warning" />
       </div>
-      <div className="message">{err}</div>
+      <div className="xe-message">{err}</div>
     </div>
   );
 }
