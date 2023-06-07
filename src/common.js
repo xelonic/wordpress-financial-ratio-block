@@ -196,7 +196,9 @@ function renderRatioValue(ratio) {
     return <div>n/a</div>;
   }
 
-  return <div>{formatValue(ratio.value, ratio.unit)}</div>;
+  const unit = ratio.units && ratio.units.length > 0 ? ratio.units[0] : undefined;
+
+  return <div>{formatValue(ratio.value, unit)}</div>;
 }
 
 function formatValue(value, unit) {
