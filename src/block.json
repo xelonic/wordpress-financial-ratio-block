@@ -3,10 +3,10 @@
   "apiVersion": 2,
   "name": "xelonic/financial-ratio-block",
   "version": "0.1.0",
-  "title": "Financial Ratio",
+  "title": "Financial Ratio by xelonic",
   "category": "embed",
   "icon": "analytics",
-  "description": "A block that displays a financial ratio of a company.",
+  "description": "Display a financial ratio of a company.",
   "supports": {
     "html": false
   },
