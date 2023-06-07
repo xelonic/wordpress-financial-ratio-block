@@ -20,11 +20,17 @@ The block will invoke an API from <a href="https://xelonic.com" target="_blank">
 
 ## Installation
 
-1. Upload the plugin files to the `<wordpress installation>/wp-content/plugins/financial-ratio-block` directory,
-   or install the plugin through the WordPress plugins screen directly.
+*This plugin is in review at Wordpress. Until then the only way to install it is by uploading the plugin zip
+to your Wordpress installation.*
+
+1. Upload and unpack the [plugin zip](https://github.com/xelonic/wordpress-financial-ratio-block/releases/download/v1.0.0/financial-ratio-block.zip)
+   to your wordpress installation at `<wordpress installation>/wp-content/plugins`.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. In the block editor search for `financial ratio` and add it.
-4. Configure the block using the right sidebar.
+
+Now the block is ready-to-use.
+
+1. In the block editor search for `financial ratio` and add it to your page.
+2. Configure the block using the right sidebar.
 
 ## Screenshots
 
