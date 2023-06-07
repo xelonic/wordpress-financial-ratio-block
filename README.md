@@ -1,4 +1,4 @@
-# Financial Ratio Block
+# Wordpress Financial Ratio Block
 
 [![Build](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml/badge.svg)](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml)
 
@@ -7,7 +7,7 @@
 * Tested up to:      6.1
 * Stable tag:        1.0.0
 
-Provides a block that displays a financial ratio of a company.
+Provides a block for Wordpress that displays a financial ratio of a company.
 
 ## Description
 
