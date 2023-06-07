@@ -20,7 +20,7 @@ This plugin enables a block in the `embed` category to display a configured fina
 
 ## Screenshots
 
-[!block screenshot](./screenshots/screenshot-block.png)
+![block screenshot](./screenshots/screenshot-block.png)
 
 ## Local Development
 
