@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Financial Ratio
+ * Plugin Name:       Financial Ratio by xelonic
  * Description:       A block that displays a financial ratio of a company.
  * Requires at least: 6.1
  * Requires PHP:      7.0
