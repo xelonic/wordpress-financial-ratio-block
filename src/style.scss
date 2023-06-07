@@ -17,7 +17,7 @@ $whitespace: 0.25rem;
 	width: fit-content;
 }
 
-.wp-block-xelonic-financial-ratio-block .container {
+.wp-block-xelonic-financial-ratio-block .xe-container {
 	position: relative;
 }
 
@@ -26,11 +26,11 @@ $whitespace: 0.25rem;
 	text-decoration: none !important;
 }
 
-.wp-block-xelonic-financial-ratio-block .xe_company {
+.wp-block-xelonic-financial-ratio-block .xe-company {
 	display: block;
 }
 
-.wp-block-xelonic-financial-ratio-block .xe_title {
+.wp-block-xelonic-financial-ratio-block .xe-title {
 	font-size: 1rem;
 	display: flex;
 	justify-content: center;
@@ -40,7 +40,7 @@ $whitespace: 0.25rem;
 	padding-bottom: 0.25rem;
 }
 
-.wp-block-xelonic-financial-ratio-block .xe_company .xe_ticker {
+.wp-block-xelonic-financial-ratio-block .xe-company .xe-ticker {
 	margin-right: $whitespace;
 	display: inline-flex;
 	align-items: center;
@@ -49,19 +49,19 @@ $whitespace: 0.25rem;
 	color: $color-muted;
 }
 
-.wp-block-xelonic-financial-ratio-block .xe_wrap_logo .xe_logo {
+.wp-block-xelonic-financial-ratio-block .xe-wrap-logo .xe-logo {
 	max-width: 4rem;
 	max-height: 4rem;
 	margin-right: $whitespace;
 }
 
-.wp-block-xelonic-financial-ratio-block .xe_subtitle {
+.wp-block-xelonic-financial-ratio-block .xe-subtitle {
 	padding-top: 0.25rem;
 	color: $color-muted;
 	justify-content: center;
 }
 
-.wp-block-xelonic-financial-ratio-block .xe_value {
+.wp-block-xelonic-financial-ratio-block .xe-value {
 	justify-content: center;
 	padding-top: 0.25rem;
 	color: #457b9d;
@@ -69,15 +69,23 @@ $whitespace: 0.25rem;
 	font-weight: 300;
 }
 
-.wp-block-xelonic-financial-ratio-block .error-container {
+.wp-block-xelonic-financial-ratio-block .xe-disabled-link {
+	pointer-events: none;
+}
+
+.wp-block-xelonic-financial-ratio-block .xe-display-none {
+	display: none;
+}
+
+.wp-block-xelonic-financial-ratio-block .xe-error-container {
 	display: flex;
 }
 
-.wp-block-xelonic-financial-ratio-block .error-container .icon {
+.wp-block-xelonic-financial-ratio-block .xe-error-container .xe-icon {
 	display: flex;
 	align-items: center;
 }
 
-.wp-block-xelonic-financial-ratio-block .error-container .message {
+.wp-block-xelonic-financial-ratio-block .xe-error-container .xe-message {
 	margin-left: $whitespace;
 }

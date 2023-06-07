@@ -4,5 +4,9 @@ import { renderBlockTemplate } from "./common";
 export default function save({ attributes }) {
   const blockProps = useBlockProps.save();
 
-  return renderBlockTemplate(blockProps, attributes);
+  return (
+    <div {...blockProps}>
+      { renderBlockTemplate(attributes) }
+    </div>
+  );
 }

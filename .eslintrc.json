@@ -19,6 +19,7 @@
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "comma-dangle": ["error", "always-multiline"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "space-before-function-paren": [
       "error",
       {
