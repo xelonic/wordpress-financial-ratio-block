@@ -99,29 +99,29 @@ function renderBlockEditorTemplate(blockProps, attributes, setAttributes) {
       { renderBlockTemplate(attributes) }
       <InspectorControls>
         <TextControl
-          label={__("Stock Symbol", "xelonic-financial-ratio-block")}
+          label={__("Stock Symbol", "financial-ratio")}
           value={attributes.ticker}
           onChange={(val) => setAttributes({ ticker: val })}
         />
         <SelectControl
-          label={__("Ratio", "xelonic-financial-ratio-block")}
+          label={__("Ratio", "financial-ratio")}
           options={ratioOptions}
           value={attributes.ratioID}
           onChange={(val) => setAttributes({ ratioID: val })}
         />
         <SelectControl
-          label={__("Company in Title", "xelonic-financial-ratio-block")}
+          label={__("Company in Title", "financial-ratio")}
           options={[
             {
-              label: __("Stock Symbol", "xelonic-financial-ratio-block"),
+              label: __("Stock Symbol", "financial-ratio"),
               value: "ticker",
             },
             {
-              label: __("Company Name", "xelonic-financial-ratio-block"),
+              label: __("Company Name", "financial-ratio"),
               value: "company_name",
             },
             {
-              label: __("None", "xelonic-financial-ratio-block"),
+              label: __("None", "financial-ratio"),
               value: "none",
             },
           ]}
@@ -129,14 +129,14 @@ function renderBlockEditorTemplate(blockProps, attributes, setAttributes) {
           onChange={(val) => setAttributes({ companyInTitle: val })}
         />
         <CheckboxControl
-          label={__("Show Company Logo", "xelonic-financial-ratio-block")}
-          help={__("show company logo if company is displayed in title ", "xelonic-financial-ratio-block")}
+          label={__("Show Company Logo", "financial-ratio")}
+          help={__("show company logo if company is displayed in title ", "financial-ratio")}
           checked={attributes.companyLogoVisible}
           onChange={(val) => setAttributes({ companyLogoVisible: val })}
         />
         <CheckboxControl
-          label={__("Show Subtitle", "xelonic-financial-ratio-block")}
-          help={__("toggle visibility of brief ratio description", "xelonic-financial-ratio-block")}
+          label={__("Show Subtitle", "financial-ratio")}
+          help={__("toggle visibility of brief ratio description", "financial-ratio")}
           checked={attributes.subtitleVisible}
           onChange={(val) => setAttributes({ subtitleVisible: val })}
         />

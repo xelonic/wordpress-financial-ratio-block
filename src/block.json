@@ -11,7 +11,7 @@
     "html": false
   },
   "keywords": ["finance", "market", "stock", "ticker", "trading", "investment"],
-  "textdomain": "xelonic-financial-ratio-block",
+  "textdomain": "financial-ratio",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

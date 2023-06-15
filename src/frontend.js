@@ -16,6 +16,6 @@ async function tryCreateBlock(element) {
 
   const err = await createBlock(element, root);
   if (err) {
-    root.render(renderError(__("Failed to fetch ratio data", "xelonic-financial-ratio-block")));
+    root.render(renderError(__("Failed to fetch ratio data", "financial-ratio")));
   }
 }
