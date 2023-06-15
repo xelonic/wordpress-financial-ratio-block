@@ -4,7 +4,7 @@
  * Description:       A block that displays a financial ratio of a company.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            xelonic capital GmbH
  * Author URI:        https://xelonic.com
  * License:           GPL-3.0
