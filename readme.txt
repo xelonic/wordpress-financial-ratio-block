@@ -5,7 +5,7 @@ Tags:              finance, market, stock, ticker, trading, investment
 Tested up to:      6.3
 Requires at least: 6.1
 Requires PHP: 7.4
-Stable tag:        1.0.0
+Stable tag:        1.0.1
 License:           GPLv3
 License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,17 +47,15 @@ Now the block is ready-to-use.
 
 For support questions, bug reports, or feature requests, please use the [WordPress Support Forums](https://wordpress.org/support/plugin/financial-ratio/).
 
-### How can I get it in my language?
-
-This plugin uses the ["Translate WordPress" platform](https://translate.wordpress.org/). Please see the sidebar on the the *Financial Ratio*'s page in the [WordPress Plugin Directory](https://wordpress.org/plugins/financial-ratio/) for available translations.
-
-To make *Financial Ratio* available in your language, go to the [translations page](https://translate.wordpress.org/projects/wp-plugins/financial-ratio), log in with a free wordpress.org account and start translating.
-
 ### Development
 
 You can get more information on the development in it's official [Github repository](https://github.com/xelonic/wordpress-financial-ratio-block).
 
 ## Changelog
+
+### 1.0.1
+
+This release fixes the text domain of the plugin.
 
 ### 1.0.0
 
