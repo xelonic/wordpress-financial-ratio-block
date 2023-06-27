@@ -19,6 +19,7 @@ source_dir=$1; shift
 target_dir=$1; shift
 
 target_trunk="${target_dir}/trunk"
+target_assets="${target_dir}/assets"
 
 if [[ -d "${target_trunk}" ]];
 then
@@ -37,4 +38,10 @@ while IFS= read -r -d '' file; do
     cp "${file}" "${target_subdir}"
 done
 
-cp -R "${source_dir}/assets"/* "${target_dir}/assets"
+
+if [[ -d "${target_assets}" ]];
+then
+  rm -IR "${target_assets}"
+fi
+
+cp -R "${source_dir}/assets" "${target_assets}"
