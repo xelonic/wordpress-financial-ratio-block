@@ -20,7 +20,7 @@ services:
     restart: always
     volumes:
       - wordpress_data:/var/www/html
-      - .:/var/www/html/wp-content/plugins/financial-ratio-block
+      # - .:/var/www/html/wp-content/plugins/financial-ratio-block
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
