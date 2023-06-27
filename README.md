@@ -2,12 +2,8 @@
 
 [![Build](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml/badge.svg)](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml)
 
-* Contributors:      strassenschild
-* Tags:              finance, market, stock, ticker, trading, investment
 * Tested up to:      6.2.2
 * Stable tag:        1.0.1
-* License:           GPLv3
-* License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Provides a block for Wordpress that displays a financial ratio of a company.
 
