@@ -13,11 +13,15 @@ Provides a block for Wordpress that displays a financial ratio of a company.
 
 ## Description
 
-This plugin enables a block in the `embed` category to display a financial ratio of a target company. There a
+This plugin enables a block in the `embed` category to display a financial ratio of a target company. There are a
 number of ratios to choose from, for example *price/earnings*, *price/book* or *market capitalization*.
 
 The block will invoke an API from <a href="https://xelonic.com" target="_blank">xelonic.com</a> to retrieve it's data.
+
 **There's no account required to use this data!**
+
+You can find more information on
+<a href="https://xelonic.com/products/wordpress-plugin" target="_blank">the product page</a>.
 
 ## Screenshots
 
