@@ -1,6 +1,6 @@
 {
   "name": "financial-ratio-block",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Example block scaffolded with Create Block tool.",
   "author": "The WordPress Contributors",
   "license": "GPL-2.0-or-later",
@@ -17,19 +17,19 @@
     "test:unit": "echo 'skipping, no tests configured yet'"
   },
   "devDependencies": {
-    "@wordpress/components": "^23.9.0",
-    "@wordpress/env": "^6.0.0",
-    "@wordpress/scripts": "^26.6.0",
-    "eslint": "^8.43.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.7.0",
+    "@wordpress/components": "^25.11.0",
+    "@wordpress/env": "^8.11.0",
+    "@wordpress/scripts": "^26.16.0",
+    "eslint": "^8.53.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2"
+    "eslint-plugin-react": "^7.33.2"
   },
   "dependencies": {
-    "@wordpress/blocks": "^12.12.0",
-    "@wordpress/element": "^5.13.0",
+    "@wordpress/blocks": "^12.22.0",
+    "@wordpress/element": "^5.22.0",
     "mutation-observer": "^1.0.3",
     "react": "^18.2.0"
   }

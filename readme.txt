@@ -2,10 +2,10 @@
 
 Contributors:      strassenschild
 Tags:              finance, market, stock, ticker, trading, investment
-Tested up to:      6.3.0
+Tested up to:      6.4.1
 Requires at least: 6.1
 Requires PHP: 7.4
-Stable tag:        1.0.1
+Stable tag:        1.1.0
 License:           GPLv3
 License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -56,6 +56,10 @@ For support questions, bug reports, or feature requests, please use the [WordPre
 You can get more information on the development in it's official [Github repository](https://github.com/xelonic/wordpress-financial-ratio-block).
 
 ## Changelog
+
+### 1.1.0
+
+Update of dependencies.
 
 ### 1.0.1
 

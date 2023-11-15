@@ -2,8 +2,8 @@
 
 [![Build](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml/badge.svg)](https://github.com/xelonic/wordpress-financial-ratio-block/actions/workflows/build.yml)
 
-* Tested up to:      6.3.0
-* Stable tag:        1.0.1
+* Tested up to:      6.4.1
+* Stable tag:        1.1.0
 
 Provides a block for Wordpress that displays a financial ratio of a company. It can be found in the Wordpress Plugin
 Directory under [Financial Ratio](https://wordpress.org/plugins/financial-ratio).
@@ -90,7 +90,7 @@ npm run env -- destroy
 
 ### Configure Wordpress
 
-Then you can navigate to wordpress, by default on `http://localhost:8888`. There you have to activate the plugin
+Then you can navigate to wordpress, by default on `http://localhost:8888/wp-admin`. There you have to activate the plugin
 for the block.
 
 The default username is `admin` with password `password`.
