@@ -116,3 +116,20 @@ Then later remove it fully again with:
 ```bash
 docker-compose down -v
 ```
+
+## Update the SVN
+
+```bash
+./update-svn.sh . ../financial-ratio-block-svn
+
+cd ../financial-ratio-block-svn
+svn commit -m "something meaningful"
+```
+
+### Release
+
+```bash
+cd ../financial-ratio-block-svn
+svn cp trunk tags/<version>
+svn commit -m "something meaningful"
+```
